@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explora la biblioteca de cuentos de Mundo de Letras.">
+  <title>Cuentos | Mundo de Letras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="bg-[#fff8e8]">
+  <header class="sticky top-0 z-40 border-b border-[#d9eee5] bg-[#fffefa]/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3">
+      <a href="index.html" aria-label="Mundo de Letras, ir al inicio"><img src="logo.png" alt="Logo de Mundo de Letras" class="h-12 w-12"></a>
+      <nav class="hidden items-center gap-1 lg:flex" aria-label="Navegación principal">
+        <a class="nav-link" href="index.html">Inicio</a><a class="nav-link active" href="cuentos.html" aria-current="page">Cuentos</a><a class="nav-link" href="acceso.html">Iniciar sesión</a>
+      </nav>
+      <button id="menu-toggle" class="fun-button rounded-2xl bg-[#e5f5ef] p-3 text-2xl lg:hidden" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu" aria-hidden="true"></i></button>
+    </div>
+    <nav id="mobile-menu" class="mobile-menu hidden space-y-1 border-t border-[#d9eee5] bg-[#fffefa] px-5 py-3 lg:hidden" aria-label="Navegación móvil">
+      <a class="nav-link" href="index.html">Inicio</a><a class="nav-link active" href="cuentos.html" aria-current="page">Cuentos</a><a class="nav-link" href="acceso.html">Iniciar sesión</a>
+    </nav>
+  </header>
+  <main>
+    <section class="relative isolate overflow-hidden bg-gradient-to-br from-[#e5f5ef] via-[#fff8e8] to-[#d7eff3] px-6 py-16 md:py-24">
+      <div class="mx-auto max-w-7xl">
+        <a href="index.html" class="mb-6 inline-flex items-center gap-2 font-extrabold text-[#087f83]"><i data-lucide="arrow-left" aria-hidden="true"></i> Volver al inicio</a>
+        <div class="mx-auto max-w-3xl text-center">
+          <span class="mb-4 inline-flex rounded-full bg-white px-4 py-2 font-extrabold text-[#168c65] shadow-sm">📚 Un estante lleno de posibilidades</span>
+          <h1 class="mb-4 text-5xl font-bold leading-tight text-[#064e70] md:text-6xl">Nuestra biblioteca de cuentos</h1>
+          <p class="text-lg leading-relaxed text-[#315c6e]">Cada libro guarda una aventura. Muy pronto podrás elegir tu próxima historia favorita.</p>
+        </div>
+      </div>
+    </section>
+    <section class="mx-auto max-w-7xl px-6 py-14 md:py-20" aria-labelledby="shelf-title">
+      <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+        <div><p class="mb-2 font-extrabold uppercase tracking-[.18em] text-[#168c65]">Un rincón para imaginar</p><h2 id="shelf-title" class="text-3xl font-bold text-[#064e70]">Cuentos por descubrir</h2></div>
+        <label class="flex items-center gap-2 rounded-full border-2 border-[#d9eee5] bg-white px-4 py-2 font-bold text-[#075985]">
+          <i data-lucide="search" aria-hidden="true"></i><span class="sr-only">Buscar cuentos</span><input class="w-40 border-0 bg-transparent outline-none placeholder:text-[#668390]" type="search" placeholder="Buscar cuento…" aria-label="Buscar cuento">
+        </label>
+      </div>
+      <div class="mb-8 flex flex-wrap gap-3" role="group" aria-label="Categorías de cuentos">
+        <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" aria-pressed="true">Todos</button>
+        <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" aria-pressed="false">Aventura</button>
+        <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" aria-pressed="false">Animales</button>
+        <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" aria-pressed="false">Aprende</button>
+        <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" aria-pressed="false">Fantasía</button>
+      </div>
+        <div id="stories-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Espacios para cuentos">
+        <article class="soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#d7eff3] to-[#75c9dc] text-7xl" aria-hidden="true">☁️</div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]">Próximamente</span><h3 class="text-xl font-bold text-[#075985]">Un cuento por llegar</h3><p class="mt-2 text-[#315c6e]">Aquí aparecerá una nueva aventura para leer.</p></div></article>
+        <article class="soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#e5f5ef] to-[#8ccf83] text-7xl" aria-hidden="true">🦊</div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#fff1dc] px-3 py-1 text-sm font-extrabold text-[#a65a28]">Próximamente</span><h3 class="text-xl font-bold text-[#075985]">Un cuento por llegar</h3><p class="mt-2 text-[#315c6e]">Un espacio reservado para tus historias.</p></div></article>
+        <article class="soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#fff1dc] to-[#ffd15b] text-7xl" aria-hidden="true">✨</div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]">Próximamente</span><h3 class="text-xl font-bold text-[#075985]">Un cuento por llegar</h3><p class="mt-2 text-[#315c6e]">Pronto habrá más mundos por explorar.</p></div></article>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-[#064e70] px-6 py-8 text-center text-white"><a href="index.html" class="font-bold">Mundo de Letras</a><p class="mt-2 text-white/80">Un mundo de historias para leer, jugar y descubrir.</p></footer>
+  <script>
+    lucide.createIcons();
+    const menu = document.getElementById('mobile-menu');
+    const toggle = document.getElementById('menu-toggle');
+    toggle.addEventListener('click', () => { const open = menu.classList.contains('hidden'); menu.classList.toggle('hidden', !open); toggle.setAttribute('aria-expanded', String(open)); });
+    const grid = document.getElementById('stories-grid');
+    const search = document.querySelector('input[type="search"]');
+    const categoryButtons = [...document.querySelectorAll('[aria-label="Categorías de cuentos"] button')];
+    let stories = [];
+    let selectedCategory = 'all';
+    function drawStories() {
+      const query = search.value.trim().toLocaleLowerCase('es');
+      const visible = stories.filter(story => (selectedCategory === 'all' || story.categories.includes(selectedCategory)) &&
+        (story.title.toLocaleLowerCase('es').includes(query) || (story.summary || '').toLocaleLowerCase('es').includes(query)));
+      grid.replaceChildren();
+      visible.forEach(story => {
+        const card = document.createElement('article');
+        card.className = 'soft-card overflow-hidden rounded-3xl bg-white';
+        const cover = document.createElement('div');
+        cover.className = 'book-cover flex items-center justify-center bg-gradient-to-br from-[#d7eff3] to-[#75c9dc] text-7xl';
+        cover.textContent = story.cover_emoji || '📖';
+        cover.setAttribute('aria-hidden', 'true');
+        const body = document.createElement('div'); body.className = 'p-5';
+        const category = document.createElement('span'); category.className = 'mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]';
+        category.textContent = story.categories.join(', ') || 'Cuento';
+        const title = document.createElement('h3'); title.className = 'text-xl font-bold text-[#075985]'; title.textContent = story.title;
+        const summary = document.createElement('p'); summary.className = 'mt-2 text-[#315c6e]'; summary.textContent = story.summary || 'Una aventura te espera.';
+        body.append(category, title, summary); card.append(cover, body); grid.append(card);
+      });
+      if (!visible.length) { const message = document.createElement('p'); message.className = 'text-[#315c6e]'; message.textContent = 'No hay cuentos que coincidan con tu búsqueda.'; grid.append(message); }
+    }
+    categoryButtons.forEach((button, index) => button.addEventListener('click', () => {
+      selectedCategory = index === 0 ? 'all' : button.textContent.trim();
+      categoryButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      drawStories();
+    }));
+    search.addEventListener('input', drawStories);
+    fetch('api/index.php?action=stories', { credentials: 'same-origin' }).then(response => {
+      if (!response.ok) throw new Error('No se pudieron cargar los cuentos.');
+      return response.json();
+    }).then(data => { stories = data.stories.map(story => ({ ...story, categories: (story.categories || '').split(',').filter(Boolean) })); drawStories(); })
+      .catch(error => { console.error(error); });
+  </script>
+</body>
+</html>
