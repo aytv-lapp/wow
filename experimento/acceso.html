@@ -15,7 +15,7 @@
 <body class="min-h-screen bg-[#fff8e8]">
   <header class="border-b border-[#d9eee5] bg-[#fffefa]">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
-      <a href="index.html" aria-label="Mundo de Letras, ir al inicio"><img src="logo.png" alt="Logo de Mundo de Letras" class="h-12 w-12"></a>
+      <a href="index.html" aria-label="Mundo de Letras, ir al inicio"><img src="wow_logo.png" alt="Logo de Mundo de Letras" class="h-12 w-12"></a>
       <nav class="flex items-center gap-2" aria-label="Navegación principal"><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="cuentos.html">Cuentos</a><a class="nav-link active" href="acceso.html" aria-current="page">Iniciar sesión</a></nav>
     </div>
   </header>
@@ -52,54 +52,6 @@
     </div>
   </main>
   <footer class="bg-[#064e70] px-6 py-5 text-center text-sm text-white/80"><a href="index.html" class="font-bold text-white">Mundo de Letras</a> · <a id="ayuda" href="mailto:hola@mundodeletras.example" class="underline">¿Necesitas ayuda?</a></footer>
-  <script>
-    async function sendAccess(action, values) {
-      const response = await fetch('api/index.php?action=' + action, {
-        method: 'POST', credentials: 'same-origin',
-        headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values)
-      });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || 'No se pudo completar la solicitud.');
-      return result;
-    }
-    const note = document.getElementById('form-note');
-    note.textContent = 'Inicia sesión o crea una cuenta para guardar tus cuentos favoritos y tu avance de lectura.';
-    lucide.createIcons();
-    const tabs = [document.getElementById('login-tab'), document.getElementById('register-tab')];
-    const panels = [document.getElementById('login-panel'), document.getElementById('register-panel')];
-    tabs.forEach((tab, index) => tab.addEventListener('click', () => {
-      tabs.forEach((item, i) => { item.setAttribute('aria-selected', String(i === index)); item.classList.toggle('bg-[#087f83]', i === index); item.classList.toggle('text-white', i === index); item.classList.toggle('text-[#075985]', i !== index); });
-      panels.forEach((panel, i) => { panel.hidden = i !== index; panel.classList.toggle('hidden', i !== index); });
-    }));
-    document.getElementById('login-panel').addEventListener('submit', async event => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      const button = form.querySelector('button[type="submit"]');
-      button.disabled = true;
-      try {
-        const result = await sendAccess('login', Object.fromEntries(new FormData(form)));
-        note.textContent = '¡Hola, ' + result.user.name + '! Ya puedes guardar favoritos y avances.';
-        note.className = 'mt-5 rounded-2xl bg-[#e5f5ef] p-3 text-center text-sm font-bold text-[#075985]';
-      } catch (error) {
-        note.textContent = error.message;
-        note.className = 'mt-5 rounded-2xl bg-[#fff1dc] p-3 text-center text-sm font-bold text-[#73512e]';
-      } finally { button.disabled = false; }
-    });
-    document.getElementById('register-panel').addEventListener('submit', async event => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      const button = form.querySelector('button[type="submit"]');
-      button.disabled = true;
-      try {
-        const values = Object.fromEntries(new FormData(form));
-        const result = await sendAccess('register', { name: values.name, email: values.email, password: values.password, accountType: 'familia' });
-        note.textContent = '¡Bienvenida, ' + result.user.name + '! Tu cuenta ya está lista.';
-        note.className = 'mt-5 rounded-2xl bg-[#e5f5ef] p-3 text-center text-sm font-bold text-[#075985]';
-      } catch (error) {
-        note.textContent = error.message;
-        note.className = 'mt-5 rounded-2xl bg-[#fff1dc] p-3 text-center text-sm font-bold text-[#73512e]';
-      } finally { button.disabled = false; }
-    });
-  </script>
+  <script src="acceso.js"></script>
 </body>
 </html>
