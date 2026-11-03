@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi recorrido | World of Words</title>
+  <meta name="description" content="Vuelve a tus cuentos, descubre tus logros y sigue tu progreso de lectura y actividades.">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="cuentoluna.css"><link rel="stylesheet" href="experiencias.css">
+  <script src="story-data.js" defer></script><script src="progress-store.js" defer></script><script src="recorrido.js" defer></script>
+  <link rel="stylesheet" href="site-shell.css">
+  <script src="site-shell.js" defer></script>
+</head>
+<body class="luna-page experience-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header"><div class="site-header-inner">
+    <a class="site-brand" href="index.html" aria-label="World of Words, ir al inicio"><img src="wow_logo.png" alt="World of Words" width="52" height="52"></a>
+    <nav class="site-nav" aria-label="Navegación principal"><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="cuentos.html">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link active" href="recorrido.html" aria-current="page">Mi recorrido</a><a class="nav-link" href="acceso.html">Iniciar sesión</a></nav>
+    <button id="menu-toggle" class="site-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div><nav id="mobile-menu" class="site-mobile-nav hidden" aria-label="Navegación móvil"><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="cuentos.html">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link active" href="recorrido.html" aria-current="page">Mi recorrido</a><a class="nav-link" href="acceso.html">Iniciar sesión</a></nav></header>
+  <main id="contenido" class="experience-main">
+    <div class="page-intro"><p class="eyebrow">Cada paso cuenta</p><h1>Mi pequeño gran recorrido</h1><p>Este es el lugar de tus historias y descubrimientos. Puedes volver a ellos cuando quieras.</p></div>
+    <div class="stats" aria-label="Tu recorrido en números"><div class="stat"><strong id="read-count">0</strong><span>Cuentos terminados</span></div><div class="stat"><strong id="activity-count">0</strong><span>Actividades completadas</span></div><div class="stat"><strong id="favorite-count">0</strong><span>Cuentos favoritos</span></div></div>
+    <section aria-labelledby="discoveries-title"><h2 class="journey-heading" id="discoveries-title">Mis descubrimientos</h2><div class="badges" id="discoveries"></div></section>
+    <section aria-labelledby="continue-title" id="continue-section" hidden><h2 class="journey-heading" id="continue-title">Una aventura por continuar</h2><div class="journey-list" id="continue-list"></div></section>
+    <section aria-labelledby="finished-title"><h2 class="journey-heading" id="finished-title">Historias que ya son parte de ti</h2><div class="journey-list" id="finished-list"></div><div id="empty-journey" class="empty-state"><h3>Tu primera aventura te espera</h3><p>Elige un cuento y termina sus capítulos para guardarlo aquí.</p><a class="luna-button" href="cuentos.html">Encontrar un cuento →</a></div></section>
+    <section aria-labelledby="favorites-title" id="favorites-section" hidden><h2 class="journey-heading" id="favorites-title">Mis cuentos favoritos</h2><div class="journey-list" id="favorites-list"></div></section>
+    <section aria-labelledby="activities-title" id="activities-section" hidden><h2 class="journey-heading" id="activities-title">Palabras y misterios descubiertos</h2><ul id="completed-activities"></ul><a class="tool" href="actividades.html">Seguir jugando →</a></section>
+    <p class="gentle-note" id="storage-note" role="status">Tu recorrido se guarda en este navegador. Cada cuento y cada actividad cuentan una sola vez, aunque vuelvas a disfrutarlos.</p>
+    <noscript><p>Activa JavaScript para consultar tu recorrido guardado.</p></noscript>
+  </main>
+  <footer class="site-footer site-footer-compact"><div class="site-footer-inner"><div><div><a href="index.html" class="footer-wordmark">World of Words</a><p>Un mundo de historias para leer, jugar y descubrir.</p><nav class="footer-reading-links" aria-label="Seguir descubriendo"><a href="cuentos.html">Elegir un cuento</a><a href="actividades.html">Jugar con palabras</a></nav></div></div><p class="footer-bottom">© 2026 World of Words</p></div></footer>
+</body>
+</html>

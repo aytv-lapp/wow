@@ -1,0 +1,88 @@
+/* Actividades y recorrido: la misma paleta y tipografía de los cuentos. */
+.experience-page { background: #fcfaf2; }
+.experience-page [hidden] { display: none !important; }
+.luna-header nav a { padding: 8px 0; min-height: 44px; }
+.luna-header nav a[aria-current="page"] { color: #087f83; border-bottom: 3px solid #087f83; }
+.experience-main { max-width: 1160px; margin: auto; padding: 48px 24px 80px; min-height: 75vh; }
+.page-intro { max-width: 760px; margin-bottom: 64px; }
+.page-intro h1 { font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.15; color: #064e70; margin: 18px 0; }
+.page-intro > p:last-child { color: #315c6e; font-size: 1.05rem; }
+.activity-grid, .stats, .badges { display: grid; gap: 24px; }
+.activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.activity-card, .stat, .badge, .journey-card { background: #fffefa; border: 1px solid #d9e6dd; border-radius: 24px; }
+.activity-card { padding: 30px; display: flex; flex-direction: column; align-items: flex-start; }
+.activity-art { display: block; width: 100%; height: 160px; margin: 8px 0 28px; }
+.activity-card h2 { color: #064e70; font-size: 1.9rem; line-height: 1.2; margin: 8px 0 18px; }
+.activity-card p:not(.eyebrow) { color: #315c6e; }
+.activity-card .luna-button { margin-top: auto; }
+.activity-card label { font-size: .9rem; font-weight: 800; margin-top: 12px; }
+.activity-card select { width: 100%; padding: 12px; border: 1px solid #a8c8bf; border-radius: 12px; background: #fffefa; color: #064e70; margin: 6px 0 18px; }
+.gentle-note { background: #eef2e6; border-left: 3px solid #82b99b; padding: 20px 24px; border-radius: 0 16px 16px 0; color: #315c6e; font-size: .9rem; margin: 28px 0; }
+.activity-dialog { width: min(700px, calc(100% - 24px)); max-height: 90dvh; overflow-y: auto; border: 1px solid #d9e6dd; border-radius: 24px; padding: 0; background: #fffefa; color: #083b57; }
+.activity-dialog::backdrop { background: #083b5780; }
+body:has(.activity-dialog[open]) { overflow: hidden; }
+.dialog-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 24px; background: #e5f5ef; }
+.dialog-top p { margin: 0; }
+.dialog-close, .tool { background: #fffefa; border: 1px solid #accac1; color: #075985; border-radius: 12px; padding: 10px 16px; font-weight: 800; min-height: 44px; }
+.dialog-close { font-size: 1.3rem; }
+.game-content { padding: 32px; }
+.game-content h2 { font-size: 2rem; line-height: 1.2; margin: 14px 0 24px; }
+.game-content .eyebrow { color: #315c6e; }
+.word-hint { background: #f5f0df; border-radius: 18px; padding: 18px; text-align: center; }
+.word-hint p { margin-top: 0; }
+.letter-slots, .letter-tiles { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 24px 0; }
+.letter-slot, .letter-tile { display: grid; place-items: center; width: clamp(36px, 8vw, 58px); height: 58px; border-radius: 12px; font-weight: 800; font-size: 1.5rem; }
+.letter-slot { border: 2px dashed #9fbcb0; background: #eef4ec; }
+.letter-tile { background: #f5d79d; color: #064e70; border: 2px solid #d8b778; box-shadow: 0 3px 0 #d8b778; }
+.letter-tile:nth-child(3n+2) { background: #b8d8bd; border-color: #93b899; box-shadow: 0 3px 0 #93b899; }
+.letter-tile:nth-child(3n) { background: #d3cce1; border-color: #b1a7c5; box-shadow: 0 3px 0 #b1a7c5; }
+button:disabled { cursor: default; opacity: .5; box-shadow: none; }
+.game-controls, .game-footer, .journey-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.game-controls { justify-content: center; }
+.game-footer { justify-content: space-between; border-top: 1px solid #d9e6dd; padding-top: 22px; margin-top: 24px; }
+.game-feedback { min-height: 32px; color: #075e44; font-weight: 800; margin-top: 18px; }
+.game-feedback.retry { color: #8a4b1e; }
+.quiz-choices { display: grid; gap: 12px; }
+.choice { padding: 16px 20px; display: flex; align-items: center; gap: 16px; border: 2px solid #d9e6dd; border-radius: 14px; background: white; color: #064e70; text-align: left; min-height: 60px; }
+.choice b { background: #e5f5ef; border-radius: 50%; padding: 3px 10px; }
+.choice.correct { border-color: #168c65; background: #e5f5ef; opacity: 1; }
+.choice.wrong { border-color: #ad7132; background: #fff1dc; }
+.game-done { text-align: center; }
+.game-done .seal { color: #087f83; font-size: 2rem; }
+.stats, .badges { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 24px 0 32px; }
+.stat { padding: 24px; }
+.stat strong { display: block; color: #087f83; font-size: 2.5rem; line-height: 1.4; }
+.stat span { color: #315c6e; font-size: .9rem; }
+.badge { background: #f0f0e8; text-align: center; padding: 24px 16px; color: #626f69; }
+.badge.earned { background: #e5f5ef; color: #075e44; border-color: #82b99b; }
+.badge .seal { display: grid; place-items: center; width: 50px; height: 50px; margin: auto; border: 1px dashed currentColor; border-radius: 50%; font-size: 1.5rem; }
+.badge h3 { margin-bottom: 6px; }
+.badge p { font-size: .9rem; margin: 6px 0; }
+.journey-heading { font-size: 1.6rem; margin: 32px 0 18px; color: #064e70; }
+.empty-state { text-align: center; padding: 36px 24px; border: 1px dashed #accac1; border-radius: 24px; background: #fffefa; }
+.empty-state h3 { font-size: 1.5rem; margin-bottom: 8px; }
+.journey-list { display: grid; gap: 16px; }
+.journey-card { display: flex; align-items: center; gap: 24px; padding: 20px; }
+.journey-card img { width: 70px; height: 100px; object-fit: contain; border-radius: 8px; background: #f4eddf; }
+.journey-card h3 { margin: 0; font-size: 1.2rem; }
+.journey-card p { margin: 8px 0; color: #315c6e; }
+.journey-card > div { flex: 1; }
+.journey-actions { font-size: .9rem; color: #087f83; font-weight: 800; }
+.reading-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
+.reading-status { margin-top: 20px; }
+@media (max-width: 720px) {
+  .luna-header-inner { flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
+  .luna-header nav { justify-content: center; font-size: .85rem; }
+  .experience-main { padding: 30px 16px 56px; }
+  .page-intro { margin-bottom: 36px; }
+  .activity-grid { grid-template-columns: 1fr; }
+  .activity-card { padding: 24px; }
+  .stats { gap: 8px; }
+  .stat { padding: 16px 10px; border-radius: 16px; }
+  .stat span { font-size: .8rem; }
+  .badges { grid-template-columns: 1fr; gap: 12px; }
+  .game-content { padding: 24px 18px; }
+  .letter-slots, .letter-tiles { gap: 6px; }
+  .journey-card { align-items: flex-start; gap: 14px; padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

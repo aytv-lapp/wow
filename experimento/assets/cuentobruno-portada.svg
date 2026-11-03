@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Bruno, el zorro que aprendió a compartir</title><desc id="desc">Un zorro naranja junto a una cesta de manzanas en un bosque de árboles verdes.</desc>
+  <rect width="600" height="900" rx="26" fill="#f4ecd8"/>
+  <circle cx="480" cy="360" r="65" fill="#f3d68e"/>
+  <path d="M0 650Q145 555 300 650T600 640V900H0" fill="#a8c5a4"/>
+  <path d="M0 760Q200 650 400 745T600 730V900H0" fill="#7fa88a"/>
+  <g fill="#c6a681"><rect x="65" y="450" width="28" height="240" rx="10"/><rect x="493" y="440" width="27" height="240" rx="10"/></g>
+  <g fill="#6f9a7b"><ellipse cx="80" cy="425" rx="90" ry="130"/><ellipse cx="510" cy="420" rx="100" ry="135"/></g>
+  <g fill="#d47b57"><circle cx="55" cy="410" r="14"/><circle cx="105" cy="470" r="14"/><circle cx="490" cy="365" r="14"/><circle cx="545" cy="450" r="14"/></g>
+  <path d="M310 745C470 790 512 638 417 628C442 714 368 698 330 690" fill="#d78142"/>
+  <path d="M449 674Q464 635 417 628Q431 661 418 683" fill="#fff8e8"/>
+  <ellipse cx="286" cy="686" rx="78" ry="101" fill="#d78142"/>
+  <ellipse cx="281" cy="709" rx="42" ry="66" fill="#fff3dd"/>
+  <path d="M202 522L200 418L269 484L317 477L382 418L375 533Q365 611 290 621Q210 609 202 522" fill="#df8b4a"/>
+  <path d="M213 445L218 500L251 485M363 445L350 499L330 485" fill="#92543c"/>
+  <path d="M208 526Q247 522 290 575Q331 522 372 526Q354 608 290 621Q226 606 208 526" fill="#fff3dd"/>
+  <g fill="#314d45"><circle cx="252" cy="531" r="7"/><circle cx="326" cy="531" r="7"/><ellipse cx="290" cy="577" rx="12" ry="9"/></g>
+  <path d="M272 590Q290 607 308 590" fill="none" stroke="#314d45" stroke-width="4" stroke-linecap="round"/>
+  <path d="M157 735H272L260 810H170Z" fill="#bc8d58"/><path d="M177 735Q214 663 253 735" fill="none" stroke="#946c42" stroke-width="9"/>
+  <g fill="#c76146"><circle cx="186" cy="731" r="21"/><circle cx="221" cy="725" r="22"/><circle cx="251" cy="734" r="19"/></g>
+  <g fill="#63875d"><ellipse cx="192" cy="707" rx="13" ry="6" transform="rotate(-25 192 707)"/><ellipse cx="227" cy="700" rx="13" ry="6"/></g>
+  <g text-anchor="middle" fill="#244f50" font-family="Georgia, serif"><text x="300" y="105" font-size="65" font-weight="bold">Bruno</text><text x="300" y="160" font-size="30">el zorro que aprendió</text><text x="300" y="205" font-size="38">a compartir</text><text x="300" y="260" font-size="19" font-style="italic">La felicidad crece entre amigos</text><text x="300" y="860" font-size="19" letter-spacing="4">WORLD OF WORDS</text></g>
+</svg>
