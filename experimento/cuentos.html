@@ -3,28 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explora la biblioteca de cuentos de Mundo de Letras.">
-  <title>Cuentos | Mundo de Letras</title>
+  <meta name="description" content="Explora la biblioteca de cuentos de World of Words.">
+  <title>Cuentos | World of Words</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="site-shell.css">
+  <script src="site-shell.js" defer></script>
 </head>
 <body class="bg-[#fff8e8]">
-  <header class="sticky top-0 z-40 border-b border-[#d9eee5] bg-[#fffefa]/95 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3">
-      <a href="index.html" aria-label="Mundo de Letras, ir al inicio"><img src="wow_logo.png" alt="Logo de Mundo de Letras" class="h-12 w-12"></a>
-      <nav class="hidden items-center gap-1 lg:flex" aria-label="Navegación principal">
-        <a class="nav-link" href="index.html">Inicio</a><a class="nav-link active" href="cuentos.html" aria-current="page">Cuentos</a><a class="nav-link" href="acceso.html">Iniciar sesión</a>
-      </nav>
-      <button id="menu-toggle" class="fun-button rounded-2xl bg-[#e5f5ef] p-3 text-2xl lg:hidden" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><i data-lucide="menu" aria-hidden="true"></i></button>
-    </div>
-    <nav id="mobile-menu" class="mobile-menu hidden space-y-1 border-t border-[#d9eee5] bg-[#fffefa] px-5 py-3 lg:hidden" aria-label="Navegación móvil">
-      <a class="nav-link" href="index.html">Inicio</a><a class="nav-link active" href="cuentos.html" aria-current="page">Cuentos</a><a class="nav-link" href="acceso.html">Iniciar sesión</a>
-    </nav>
-  </header>
+  <header class="site-header"><div class="site-header-inner">
+    <a class="site-brand" href="index.html" aria-label="World of Words, ir al inicio"><img src="wow_logo.png" alt="World of Words" width="52" height="52"></a>
+    <nav class="site-nav" aria-label="Navegación principal"><a class="nav-link" href="index.html">Inicio</a><a class="nav-link active" href="cuentos.html" aria-current="page">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link" href="recorrido.html">Mi recorrido</a><a class="nav-link" href="acceso.html">Iniciar sesión</a></nav>
+    <button id="menu-toggle" class="site-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div><nav id="mobile-menu" class="site-mobile-nav hidden" aria-label="Navegación móvil"><a class="nav-link" href="index.html">Inicio</a><a class="nav-link active" href="cuentos.html" aria-current="page">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link" href="recorrido.html">Mi recorrido</a><a class="nav-link" href="acceso.html">Iniciar sesión</a></nav></header>
   <main>
     <section class="relative isolate overflow-hidden bg-gradient-to-br from-[#e5f5ef] via-[#fff8e8] to-[#d7eff3] px-6 py-16 md:py-24">
       <div class="mx-auto max-w-7xl">
@@ -32,7 +27,7 @@
         <div class="mx-auto max-w-3xl text-center">
           <span class="mb-4 inline-flex rounded-full bg-white px-4 py-2 font-extrabold text-[#168c65] shadow-sm">📚 Un estante lleno de posibilidades</span>
           <h1 class="mb-4 text-5xl font-bold leading-tight text-[#064e70] md:text-6xl">Nuestra biblioteca de cuentos</h1>
-          <p class="text-lg leading-relaxed text-[#315c6e]">Cada libro guarda una aventura. Muy pronto podrás elegir tu próxima historia favorita.</p>
+          <p class="text-lg leading-relaxed text-[#315c6e]">Cada libro guarda una aventura. Elige tu próxima historia favorita y descubre sus capítulos.</p>
         </div>
       </div>
     </section>
@@ -51,13 +46,14 @@
         <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" aria-pressed="false">Fantasía</button>
       </div>
         <div id="stories-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Espacios para cuentos">
-        <article class="soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#d7eff3] to-[#75c9dc] text-7xl" aria-hidden="true">☁️</div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]">Próximamente</span><h3 class="text-xl font-bold text-[#075985]">Un cuento por llegar</h3><p class="mt-2 text-[#315c6e]">Aquí aparecerá una nueva aventura para leer.</p></div></article>
-        <article class="soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#e5f5ef] to-[#8ccf83] text-7xl" aria-hidden="true">🦊</div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#fff1dc] px-3 py-1 text-sm font-extrabold text-[#a65a28]">Próximamente</span><h3 class="text-xl font-bold text-[#075985]">Un cuento por llegar</h3><p class="mt-2 text-[#315c6e]">Un espacio reservado para tus historias.</p></div></article>
+        <a href="cuentoluna.html" class="soft-card block overflow-hidden rounded-3xl bg-white"><div class="book-cover" aria-hidden="true"><img src="assets/cuentoluna-portada-v2.png" width="1024" height="1536" alt="" class="h-80 w-full object-contain bg-[#fff8e8]"></div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]">Aventura</span><h3 class="text-xl font-bold text-[#075985]">Luna y el planeta de colores</h3><p class="mt-2 text-[#315c6e]">Una estrella sin brillo, un mapa secreto y cinco capítulos para descubrir los colores del universo.</p></div></a>
+        <a href="cuentobruno.html" class="soft-card block overflow-hidden rounded-3xl bg-white"><div class="book-cover" aria-hidden="true"><img src="assets/cuentobruno-portada-v2.png" width="600" height="900" alt="" class="h-80 w-full object-contain bg-[#fff8e8]"></div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]">Animales · Aprende</span><h3 class="text-xl font-bold text-[#075985]">Bruno, el zorro que aprendió a compartir</h3><p class="mt-2 text-[#315c6e]">Una cesta de manzanas y una aventura para descubrir la alegría de compartir.</p></div></a>
         <article class="soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#fff1dc] to-[#ffd15b] text-7xl" aria-hidden="true">✨</div><div class="p-5"><span class="mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]">Próximamente</span><h3 class="text-xl font-bold text-[#075985]">Un cuento por llegar</h3><p class="mt-2 text-[#315c6e]">Pronto habrá más mundos por explorar.</p></div></article>
       </div>
     </section>
   </main>
-  <footer class="bg-[#064e70] px-6 py-8 text-center text-white"><a href="index.html" class="font-bold">Mundo de Letras</a><p class="mt-2 text-white/80">Un mundo de historias para leer, jugar y descubrir.</p></footer>
+  <footer class="site-footer site-footer-compact"><div class="site-footer-inner"><div><div><a href="index.html" class="footer-wordmark">World of Words</a><p>Un mundo de historias para leer, jugar y descubrir.</p><nav class="footer-reading-links" aria-label="Seguir descubriendo"><a href="cuentos.html">Elegir un cuento</a><a href="actividades.html">Jugar con palabras</a></nav></div></div><p class="footer-bottom">© 2026 World of Words</p></div></footer>
+  <script src="story-data.js"></script>
   <script src="cuentos.js"></script>
 </body>
 </html>

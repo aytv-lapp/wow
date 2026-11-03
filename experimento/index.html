@@ -12,37 +12,16 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="site-shell.css">
+  <script src="site-shell.js" defer></script>
 </head>
 
 <body class="bg-[#fff8e8]">
-  <header class="sticky top-0 z-40 border-b border-[#d9eee5] bg-[#fffefa]/95 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3">
-      <a href="index.html" class="flex items-center gap-2" aria-label="Mundo de Letras, ir al inicio">
-        <img src="wow_logo.png" alt="Logo de Mundo de Letras" class="h-12 w-12">
-      </a>
-
-      <nav class="hidden items-center gap-1 lg:flex" aria-label="Navegación principal">
-        <a class="nav-link active" href="#inicio">Inicio</a>
-        <a class="nav-link" href="#que-es">¿Qué es?</a>
-        <a class="nav-link" href="#funciones">Funciones</a>
-        <a class="nav-link" href="cuentos.html">Cuentos</a>
-        <a class="nav-link" href="acceso.html">Iniciar sesión</a>
-        <a class="nav-link" href="#contacto">Contacto</a>
-      </nav>
-
-      <button id="menu-toggle" class="fun-button rounded-2xl bg-[#e5f5ef] p-3 text-2xl lg:hidden" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
-        <i data-lucide="menu" aria-hidden="true"></i>
-      </button>
-    </div>
-    <nav id="mobile-menu" class="mobile-menu hidden space-y-1 border-t border-[#d9eee5] bg-[#fffefa] px-5 py-3 lg:hidden" aria-label="Navegación móvil">
-      <a class="nav-link active" href="#inicio">Inicio</a>
-      <a class="nav-link" href="#que-es">¿Qué es?</a>
-      <a class="nav-link" href="#funciones">Funciones</a>
-      <a class="nav-link" href="cuentos.html">Cuentos</a>
-      <a class="nav-link" href="acceso.html">Iniciar sesión</a>
-      <a class="nav-link" href="#contacto">Contacto</a>
-    </nav>
-  </header>
+  <header class="site-header"><div class="site-header-inner">
+    <a class="site-brand" href="index.html" aria-label="World of Words, ir al inicio"><img src="wow_logo.png" alt="World of Words" width="52" height="52"></a>
+    <nav class="site-nav" aria-label="Navegación principal"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a><a class="nav-link" href="cuentos.html">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link" href="recorrido.html">Mi recorrido</a><a class="nav-link" href="acceso.html">Iniciar sesión</a></nav>
+    <button id="menu-toggle" class="site-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div><nav id="mobile-menu" class="site-mobile-nav hidden" aria-label="Navegación móvil"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a><a class="nav-link" href="cuentos.html">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link" href="recorrido.html">Mi recorrido</a><a class="nav-link" href="acceso.html">Iniciar sesión</a></nav></header>
 
   <main>
     <section id="inicio" class="section-anchor relative isolate overflow-hidden bg-gradient-to-br from-[#e5f5ef] via-[#fff8e8] to-[#d7eff3]">
@@ -55,23 +34,10 @@
           <p class="mb-8 max-w-xl text-lg leading-relaxed text-[#315c6e]">Leer, jugar y descubrir: historias y actividades para que cada niña y cada niño encuentre su propia magia.</p>
           <div class="flex flex-wrap gap-4">
             <a href="cuentos.html" class="fun-button inline-flex items-center gap-2 rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white shadow-lg">Explorar cuentos <i data-lucide="arrow-right" aria-hidden="true"></i></a>
-            <a href="#que-es" class="fun-button inline-flex items-center rounded-full border-2 border-[#087f83] bg-white px-6 py-3 font-extrabold text-[#075985]">Conócenos</a>
+            <a href="actividades.html" class="fun-button inline-flex items-center rounded-full border-2 border-[#087f83] bg-white px-6 py-3 font-extrabold text-[#075985]">Vamos a jugar</a>
           </div>
         </div>
-        <div class="illustrated-books min-h-64" role="img" aria-label="Paneles ilustrados: nubes viajeras, bosque mágico y a soñar">
-          <div class="illustrated-book book-coral">
-            <span class="book-icon" aria-hidden="true">☁️</span>
-            <span class="book-label">Nubes viajeras</span>
-          </div>
-          <div class="illustrated-book book-teal">
-            <span class="book-icon" aria-hidden="true">🦊</span>
-            <span class="book-label">Bosque mágico</span>
-          </div>
-          <div class="illustrated-book book-gold">
-            <span class="book-icon" aria-hidden="true">🚀</span>
-            <span class="book-label">A soñar</span>
-          </div>
-        </div>
+        <div class="home-cover-display" aria-label="Dos cuentos para empezar a imaginar"><a href="cuentoluna.html"><img src="assets/cuentoluna-portada-v2.png" alt="Descubre Luna y el planeta de colores" width="1024" height="1536"></a><a href="cuentobruno.html"><img src="assets/cuentobruno-portada-v2.png" alt="Descubre Bruno, el zorro que aprendió a compartir" width="1024" height="1536"></a></div>
       </div>
     </section>
 
@@ -122,19 +88,19 @@
       </div>
       <div class="mb-8 flex flex-wrap justify-center gap-3" role="group" aria-label="Funciones de Mundo de Letras">
         <button class="feature-tab fun-button rounded-full bg-[#087f83] px-5 py-3 font-extrabold text-white" type="button" data-panel="panel-cuentos" aria-controls="panel-cuentos" aria-pressed="true">📚 Cuentos</button>
-        <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-juegos" aria-controls="panel-juegos" aria-pressed="false">🎮 Juegos</button>
-        <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-narracion" aria-controls="panel-narracion" aria-pressed="false">🎧 Narración</button>
-        <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-medallas" aria-controls="panel-medallas" aria-pressed="false">🏅 Medallas</button>
+        <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-juegos" aria-controls="panel-juegos" aria-pressed="false">🎮 Actividades</button>
+        <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-narracion" aria-controls="panel-narracion" aria-pressed="false">🎧 Pistas con voz</button>
+        <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-medallas" aria-controls="panel-medallas" aria-pressed="false">🏅 Descubrimientos</button>
         <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-progreso" aria-controls="panel-progreso" aria-pressed="false">📈 Progreso</button>
         <button class="feature-tab fun-button rounded-full bg-white px-5 py-3 font-extrabold text-[#075985]" type="button" data-panel="panel-familias" aria-controls="panel-familias" aria-pressed="false">👨‍👩‍👧 Familias</button>
       </div>
       <div class="mx-auto max-w-4xl">
-        <article id="panel-cuentos" class="feature-panel soft-card rounded-3xl bg-white p-8" role="tabpanel"><h3 class="mb-3 text-2xl font-bold text-[#075985]">Historias para imaginar</h3><p class="text-lg leading-relaxed text-[#315c6e]">Explora cuentos breves con personajes entrañables y aventuras para todos los gustos.</p></article>
-        <article id="panel-juegos" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="tabpanel"><h3 class="mb-3 text-2xl font-bold text-[#075985]">Jugar con las palabras</h3><p class="text-lg leading-relaxed text-[#315c6e]">Practica vocabulario y comprensión con actividades entretenidas y desafíos amigables.</p></article>
-        <article id="panel-narracion" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="tabpanel"><h3 class="mb-3 text-2xl font-bold text-[#075985]">Escucha cada historia</h3><p class="text-lg leading-relaxed text-[#315c6e]">Disfruta de la narración y sigue las historias con todos tus sentidos.</p></article>
-        <article id="panel-medallas" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="tabpanel"><h3 class="mb-3 text-2xl font-bold text-[#075985]">Celebra tus logros</h3><p class="text-lg leading-relaxed text-[#315c6e]">Cada paso cuenta: gana reconocimientos mientras descubres nuevas historias.</p></article>
-        <article id="panel-progreso" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="tabpanel"><h3 class="mb-3 text-2xl font-bold text-[#075985]">Avanza a tu ritmo</h3><p class="text-lg leading-relaxed text-[#315c6e]">Mira cuánto has explorado y encuentra tu próxima aventura de lectura.</p></article>
-        <article id="panel-familias" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="tabpanel"><h3 class="mb-3 text-2xl font-bold text-[#075985]">Compartir también es aprender</h3><p class="text-lg leading-relaxed text-[#315c6e]">Familiares y personas cuidadoras pueden acompañar y celebrar cada descubrimiento.</p></article>
+        <article id="panel-cuentos" class="feature-panel soft-card rounded-3xl bg-white p-8" role="region" aria-labelledby="panel-cuentos-title"><h3 id="panel-cuentos-title" class="mb-3 text-2xl font-bold text-[#075985]">Historias para imaginar</h3><p class="mb-6 text-lg leading-relaxed text-[#315c6e]">Luna viaja entre estrellas y Bruno descubre la alegría de compartir. Elige un cuento, conoce su prólogo y lee a tu ritmo.</p><a class="fun-button inline-flex rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" href="cuentos.html">Elegir mi cuento →</a></article>
+        <article id="panel-juegos" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="region" aria-labelledby="panel-juegos-title"><h3 id="panel-juegos-title" class="mb-3 text-2xl font-bold text-[#075985]">Jugar con las palabras</h3><p class="mb-6 text-lg leading-relaxed text-[#315c6e]">Ordena letras con ayuda de una pista o conviértete en detective y responde preguntas sobre Luna y Bruno. Puedes volver a intentarlo siempre.</p><a class="fun-button inline-flex rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" href="actividades.html">Ir a las actividades →</a></article>
+        <article id="panel-narracion" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="region" aria-labelledby="panel-narracion-title"><h3 id="panel-narracion-title" class="mb-3 text-2xl font-bold text-[#075985]">Una pista para escuchar</h3><p class="mb-6 text-lg leading-relaxed text-[#315c6e]">En Construye una palabra puedes escuchar la pista, además de leerla. Cuando tu navegador tenga voz disponible, pulsa Escuchar pista.</p><a class="fun-button inline-flex rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" href="actividades.html">Descubrir una palabra →</a></article>
+        <article id="panel-medallas" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="region" aria-labelledby="panel-medallas-title"><h3 id="panel-medallas-title" class="mb-3 text-2xl font-bold text-[#075985]">Celebra tus descubrimientos</h3><p class="mb-6 text-lg leading-relaxed text-[#315c6e]">Termina tu primer cuento, resuelve una actividad y explora las dos historias. En Mi recorrido encontrarás tus descubrimientos.</p><a class="fun-button inline-flex rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" href="recorrido.html">Ver mis descubrimientos →</a></article>
+        <article id="panel-progreso" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="region" aria-labelledby="panel-progreso-title"><h3 id="panel-progreso-title" class="mb-3 text-2xl font-bold text-[#075985]">Tu próxima página te espera</h3><p class="mb-6 text-lg leading-relaxed text-[#315c6e]">Continúa tus capítulos, vuelve a tus favoritos y recuerda las palabras y los misterios que descubriste. Tu recorrido se guarda en este navegador.</p><a class="fun-button inline-flex rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" href="recorrido.html">Ver mi recorrido →</a></article>
+        <article id="panel-familias" class="feature-panel hidden soft-card rounded-3xl bg-white p-8" role="region" aria-labelledby="panel-familias-title"><h3 id="panel-familias-title" class="mb-3 text-2xl font-bold text-[#075985]">Compartir también es aprender</h3><p class="mb-6 text-lg leading-relaxed text-[#315c6e]">Lean juntos y conversen sobre lo que descubrieron. Una persona adulta puede visitar el acceso a cuentas; por ahora el recorrido se guarda en este navegador.</p><a class="fun-button inline-flex rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" href="acceso.html">Acceso para familias →</a></article>
       </div>
     </section>
 
@@ -152,24 +118,7 @@
           <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" data-filter="Fantasía" aria-pressed="false">Fantasía</button>
           <button class="filter-chip rounded-full border-2 border-transparent bg-white px-5 py-2 font-extrabold text-[#075985]" type="button" data-filter="Aprende" aria-pressed="false">Aprende</button>
         </div>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <article class="library-card soft-card overflow-hidden rounded-3xl bg-white" data-category="Aventura" data-story-slug="el-viaje-de-la-nube">
-            <div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#75c9dc] to-[#075985] text-7xl" aria-hidden="true">☁️</div>
-            <div class="p-5"><p class="mb-2 text-sm font-extrabold uppercase tracking-wider text-[#168c65]">Aventura</p><h3 class="mb-4 text-xl font-bold text-[#075985]">El viaje de la nube</h3><button class="fun-button rounded-full bg-[#087f83] px-5 py-2 font-extrabold text-white" type="button" data-book="cloud">Ver cuento</button></div>
-          </article>
-            <article class="library-card soft-card overflow-hidden rounded-3xl bg-white" data-category="Animales" data-story-slug="lola-y-el-bosque-brillante">
-            <div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#8ccf83] to-[#168c65] text-7xl" aria-hidden="true">🦊</div>
-            <div class="p-5"><p class="mb-2 text-sm font-extrabold uppercase tracking-wider text-[#168c65]">Animales</p><h3 class="mb-4 text-xl font-bold text-[#075985]">Lola y el bosque brillante</h3><button class="fun-button rounded-full bg-[#087f83] px-5 py-2 font-extrabold text-white" type="button" data-book="forest">Ver cuento</button></div>
-          </article>
-          <article class="library-card soft-card overflow-hidden rounded-3xl bg-white" data-category="Fantasía">
-            <div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#bd9ce4] to-[#7652a6] text-6xl font-bold text-white" aria-hidden="true">A B C</div>
-            <div class="p-5"><p class="mb-2 text-sm font-extrabold uppercase tracking-wider text-[#168c65]">Fantasía</p><h3 class="mb-4 text-xl font-bold text-[#075985]">La aventura del abecedario</h3><button class="fun-button rounded-full bg-[#087f83] px-5 py-2 font-extrabold text-white" type="button" data-book="abc">Ver cuento</button></div>
-          </article>
-          <article class="library-card soft-card overflow-hidden rounded-3xl bg-white" data-category="Aprende">
-            <div class="book-cover flex items-center justify-center bg-gradient-to-br from-[#ffd15b] to-[#e8863b] text-7xl" aria-hidden="true">🚀</div>
-            <div class="p-5"><p class="mb-2 text-sm font-extrabold uppercase tracking-wider text-[#168c65]">Aprende</p><h3 class="mb-4 text-xl font-bold text-[#075985]">El cohete de los sueños</h3><button class="fun-button rounded-full bg-[#087f83] px-5 py-2 font-extrabold text-white" type="button" data-book="rocket">Ver cuento</button></div>
-          </article>
-        </div>
+<div id="home-stories" class="mx-auto grid max-w-4xl gap-8 sm:grid-cols-2"><article class="home-book-card soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover"><img src="assets/cuentoluna-portada-v2.png" alt="" width="1024" height="1536" loading="lazy"></div><div class="story-card-body"><p class="story-card-category">Aventura · Fantasía · 5 capítulos</p><h3>Luna y el planeta de colores</h3><p class="story-card-summary">Una estrella sin brillo, un mapa secreto y cinco capítulos para descubrir los colores del universo.</p><a class="story-card-link" href="cuentoluna.html">Descubrir el cuento →</a></div></article><article class="home-book-card soft-card overflow-hidden rounded-3xl bg-white"><div class="book-cover"><img src="assets/cuentobruno-portada-v2.png" alt="" width="1024" height="1536" loading="lazy"></div><div class="story-card-body"><p class="story-card-category">Animales · Aprende · 4 capítulos</p><h3>Bruno, el zorro que aprendió a compartir</h3><p class="story-card-summary">Una cesta de manzanas, dos buenos amigos y un gran descubrimiento: compartir hace crecer la felicidad.</p><a class="story-card-link" href="cuentobruno.html">Descubrir el cuento →</a></div></article></div>
         <p id="no-books" class="hidden mt-8 text-center font-bold text-[#075985]" role="status">No hay cuentos en esta categoría por ahora.</p>
       </div>
     </section>
@@ -179,50 +128,15 @@
         <span class="twinkle mb-4 inline-block text-5xl" aria-hidden="true">🚀</span>
         <h2 class="mb-4 text-4xl font-bold">¡Tu próxima aventura te espera!</h2>
         <p class="mx-auto mb-7 max-w-2xl text-lg">Únete a nuestro mundo y empieza a descubrir historias, juegos y un montón de nuevas palabras.</p>
-        <button id="signup-open" class="fun-button rounded-full bg-[#fff8e8] px-7 py-3 font-extrabold text-[#075985]" type="button">Quiero explorar</button>
+        <a href="cuentos.html" class="fun-button inline-flex rounded-full bg-[#fff8e8] px-7 py-3 font-extrabold text-[#075985]">Elegir mi próxima historia →</a>
       </div>
     </section>
   </main>
 
-  <footer id="contacto" class="section-anchor bg-[#064e70] px-6 py-12 text-white">
-    <div class="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <div><a href="#inicio" class="logo-wordmark !bg-none !text-white">World of Words</a><p class="mt-4 max-w-sm text-white/80">Un mundo de historias para leer, jugar y descubrir.</p></div>
-      <div><h2 class="mb-3 text-xl font-bold">Contacto</h2><p class="text-white/80"><a href="mailto:contactoworldofwords@gmail.com">contactoworldofwords@gmail.com</a></p><p class="mt-2 text-white/80"><a href="tel:+525555550000">+52 55 5555 0000</a></p></div>
-    </div>
-    <p class="mx-auto mt-10 max-w-7xl border-t border-white/20 pt-5 text-sm text-white/70">© 2026 World of Words</p>
-  </footer>
+  <footer class="site-footer" id="contacto"><div class="site-footer-inner"><div class="footer-contact-layout"><div><a href="index.html" class="footer-wordmark">World of Words</a><p>Un mundo de historias para leer, jugar y descubrir.</p></div><section class="footer-contact" aria-labelledby="footer-contact-title"><h2 id="footer-contact-title">Contacto</h2><p>Para familias y docentes que nos acompañan.</p><p><a href="mailto:contactoworldofwords@gmail.com">contactoworldofwords@gmail.com</a></p><p><a href="tel:+525555550000">+52 55 5555 0000</a></p></section></div><p class="footer-bottom">© 2026 World of Words</p></div></footer>
 
-  <div id="book-modal" class="modal-shell fixed inset-0 z-50 items-center justify-center overflow-y-auto p-4" role="dialog" aria-modal="true" aria-labelledby="preview-title" aria-hidden="true">
-    <div class="relative my-auto w-full max-w-lg rounded-3xl bg-[#fffefa] p-7 shadow-2xl">
-      <button id="book-close" class="absolute right-4 top-4 rounded-full p-2 text-[#075985] hover:bg-[#e5f5ef]" type="button" aria-label="Cerrar cuento"><i data-lucide="x" aria-hidden="true"></i></button>
-      <div id="preview-icon" class="mb-4 text-6xl" aria-hidden="true"></div>
-      <p id="preview-category" class="mb-2 font-extrabold uppercase tracking-wider text-[#168c65]"></p>
-      <h2 id="preview-title" class="mb-4 pr-8 text-3xl font-bold text-[#064e70]"></h2>
-      <p id="preview-text" class="mb-6 leading-relaxed text-[#315c6e]"></p>
-      <button id="start-reading" class="fun-button rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" type="button">¡Empezar a leer!</button>
-      <button id="favorite-story" class="fun-button ml-2 rounded-full border-2 border-[#087f83] bg-white px-6 py-3 font-extrabold text-[#087f83]" type="button">♡ Guardar favorito</button>
-      <button id="finish-reading" class="hidden fun-button ml-2 rounded-full bg-[#e5f5ef] px-6 py-3 font-extrabold text-[#075985]" type="button">Terminé de leer</button>
-      <p id="reading-message" class="hidden mt-4 rounded-2xl bg-[#e5f5ef] p-4 font-bold text-[#075985]" role="status">¡Que disfrutes la lectura! 📖</p>
-      <p id="book-error" class="hidden mt-4 rounded-2xl bg-[#fff1dc] p-4 font-bold text-[#73512e]" role="status"></p>
-    </div>
-  </div>
 
-  <div id="signup-modal" class="modal-shell fixed inset-0 z-50 items-center justify-center overflow-y-auto p-4" role="dialog" aria-modal="true" aria-labelledby="signup-title" aria-hidden="true">
-    <div class="relative my-auto w-full max-w-lg rounded-3xl bg-[#fffefa] p-7 shadow-2xl">
-      <button id="signup-close" class="absolute right-4 top-4 rounded-full p-2 text-[#075985] hover:bg-[#e5f5ef]" type="button" aria-label="Cerrar formulario"><i data-lucide="x" aria-hidden="true"></i></button>
-      <h2 id="signup-title" class="mb-3 pr-8 text-3xl font-bold text-[#064e70]">¡Te damos la bienvenida!</h2>
-      <p class="mb-6 text-[#315c6e]">Cuéntanos un poquito de ti para comenzar a explorar.</p>
-      <form id="signup-form" class="space-y-4">
-        <div><label class="mb-1 block font-bold text-[#075985]" for="signup-name">Nombre</label><input class="w-full rounded-xl border-2 border-[#d9eee5] px-4 py-3" id="signup-name" name="name" type="text" autocomplete="name" required></div>
-        <div><label class="mb-1 block font-bold text-[#075985]" for="signup-role">¿Quién nos visita?</label><select class="w-full rounded-xl border-2 border-[#d9eee5] bg-white px-4 py-3" id="signup-role" name="role" required><option value="">Elige una opción</option><option value="lector">Soy lector o lectora</option><option value="familia">Soy familiar o persona cuidadora</option><option value="educador">Soy docente o educador/a</option></select></div>
-          <div><label class="mb-1 block font-bold text-[#075985]" for="signup-email">Correo electrónico</label><input class="w-full rounded-xl border-2 border-[#d9eee5] px-4 py-3" id="signup-email" name="email" type="email" autocomplete="email" required></div>
-          <div><label class="mb-1 block font-bold text-[#075985]" for="signup-password">Contraseña (mínimo 8 caracteres)</label><input class="w-full rounded-xl border-2 border-[#d9eee5] px-4 py-3" id="signup-password" name="password" type="password" minlength="8" autocomplete="new-password" required></div>
-        <button class="fun-button rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" type="submit">¡Vamos allá!</button>
-        <p id="signup-success" class="hidden rounded-2xl bg-[#e5f5ef] p-4 font-bold text-[#075985]" role="status">¡Listo! Gracias por unirte a World of Words.</p>
-      </form>
-    </div>
-  </div>
-
+  <script src="story-data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
