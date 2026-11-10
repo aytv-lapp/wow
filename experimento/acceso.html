@@ -12,14 +12,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="site-shell.css">
-  <script src="site-shell.js" defer></script>
 </head>
 <body class="min-h-screen bg-[#fff8e8]">
-  <header class="site-header"><div class="site-header-inner">
-    <a class="site-brand" href="index.html" aria-label="World of Words, ir al inicio"><img src="wow_logo.png" alt="World of Words" width="52" height="52"></a>
-    <nav class="site-nav" aria-label="Navegación principal"><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="cuentos.html">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link" href="recorrido.html">Mi recorrido</a><a class="nav-link active" href="acceso.html" aria-current="page">Iniciar sesión</a></nav>
-    <button id="menu-toggle" class="site-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-  </div><nav id="mobile-menu" class="site-mobile-nav hidden" aria-label="Navegación móvil"><a class="nav-link" href="index.html">Inicio</a><a class="nav-link" href="cuentos.html">Cuentos</a><a class="nav-link" href="actividades.html">Actividades</a><a class="nav-link" href="recorrido.html">Mi recorrido</a><a class="nav-link active" href="acceso.html" aria-current="page">Iniciar sesión</a></nav></header>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="index.html" aria-label="World of Words, ir al inicio"><img src="wow_logo.png" alt="World of Words" width="52" height="52"></a>
+      <span class="nav-link active" aria-current="page">Iniciar sesión</span>
+    </div>
+  </header>
   <main class="relative isolate min-h-[calc(100vh-125px)] overflow-hidden bg-gradient-to-br from-[#e5f5ef] via-[#fff8e8] to-[#d7eff3] px-5 py-12 md:py-16">
     <div class="cloud right-8 top-10 hidden h-12 w-28 md:block" aria-hidden="true"></div>
     <div class="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
@@ -48,6 +48,7 @@
           <label class="flex items-start gap-3 text-sm leading-relaxed text-[#315c6e]"><input class="mt-1 accent-[#087f83]" type="checkbox" required><span>Confirmo que soy madre, padre o persona cuidadora y acepto crear esta cuenta.</span></label>
           <button class="fun-button w-full rounded-full bg-[#087f83] px-6 py-3 font-extrabold text-white" type="submit">Crear mi rincón lector <span aria-hidden="true">✨</span></button>
         </form>
+        <p class="mt-5 text-center text-sm"><a class="font-bold text-[#075985] underline underline-offset-4" href="familia.html">Ver la demostración de Mi familia</a></p>
         <p id="form-note" class="mt-5 rounded-2xl bg-[#fff1dc] p-3 text-center text-sm text-[#73512e]">Los formularios son una maqueta visual; el acceso se conectará más adelante.</p>
       </section>
     </div>

@@ -31,5 +31,21 @@ window.WowStories = [
       { word: 'RAMA', hint: 'Tina sostiene una larga para ayudar a Bruno a salir del agua.' },
       { word: 'CESTA', hint: 'Bruno guarda en ella las manzanas que recoge en el bosque.' }
     ]
+  },
+  {
+    id: 'expedicion', slug: 'la-expedicion-al-corazon-de-la-montana', title: 'La expedición al corazón de la montaña',
+    categories: ['Aventura', 'Animales'], chapters: 10, href: 'cuentoexpedicion.html', chapterPrefix: 'cuentoexpedicion_cap',
+    summary: 'Un mapa secreto guía a Álex y sus amigos hacia el Monte Susurrante, donde esperan encontrar una forma de salvar su bosque.',
+    cover_image: 'assets/cuentoexpedicion-portada.png', cover_emoji: '⛰️',
+    questions: [
+      { question: '¿Dónde encontró Álex la caja con el mapa?', options: ['Dentro de la montaña', 'Entre las raíces de un árbol', 'En el viejo roble de Olivia'], answer: 1, explanation: 'Álex vio la caja entre las raíces de un árbol caído mientras buscaba piedras.' },
+      { question: '¿Quién construía inventos en el bosque?', options: ['Timo', 'Nora', 'Olivia'], answer: 0, explanation: 'Timo, el conejo, estaba fabricando una máquina para recoger frutos.' },
+      { question: '¿Qué prometieron los amigos para ayudar al corazón de la montaña?', options: ['Llevarse el cristal', 'Guardar el bosque en un mapa', 'Cuidar el bosque y respetar a los seres vivos'], answer: 2, explanation: 'Los cuatro prometieron proteger su hogar y compartir la responsabilidad de cuidarlo.' }
+    ],
+    words: [
+      { word: 'CAJA', hint: 'Álex la encuentra entre las raíces y dentro de ella hay un mapa, una brújula y una nota.' },
+      { word: 'CUEVA', hint: 'En este lugar bajo la roca, los exploradores se encuentran con sus recuerdos.' },
+      { word: 'BOSQUE', hint: 'Así se llama el lugar lleno de árboles que Álex y sus amigos quieren salvar.' }
+    ]
   }
 ];
