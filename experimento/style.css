@@ -230,6 +230,18 @@ select:focus-visible {
   pointer-events: none;
 }
 
+#stories-grid a[href="cuentoexpedicion.html"] .book-cover {
+  background: #fff8e8;
+}
+
+#stories-grid a[href="cuentoexpedicion.html"] .book-cover img {
+  display: block;
+  width: min(100%, calc(20rem * 2 / 3));
+  height: 20rem;
+  margin-inline: auto;
+  object-fit: cover;
+}
+
 /* Menú, filtros y paneles interactivos */
 .mobile-menu.hidden,
 .feature-panel.hidden,

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vista de demostración del panel de lectura para familias de World of Words.">
+  <title>Mi familia | World of Words</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="familia.css">
+  <script src="story-data.js" defer></script>
+  <script src="familia.js" defer></script>
+</head>
+<body class="family-page">
+  <a class="family-skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-brand" href="index.html" aria-label="World of Words, ir al inicio"><img src="wow_logo.png" alt="World of Words" width="52" height="52"></a>
+      <a class="nav-link" href="acceso.html">← Volver a Acceso</a>
+    </div>
+  </header>
+
+  <div class="family-layout">
+    <aside class="family-sidebar" aria-label="Perfil familiar">
+      <div class="family-account">
+        <span class="family-avatar" aria-hidden="true">AM</span>
+        <div><p class="family-kicker">Persona cuidadora</p><p class="family-account-name">Andrea Morales</p><p>Perfil de ejemplo</p></div>
+      </div>
+      <nav class="family-nav" aria-label="Secciones de Mi familia">
+        <a href="#perfiles">Perfiles de lectura</a>
+        <a href="#progreso">Progreso de lectura</a>
+        <a href="#generos">Géneros favoritos</a>
+        <a href="#recomendados">Libros recomendados</a>
+      </nav>
+    </aside>
+
+    <main id="contenido" class="family-main">
+      <div class="family-intro">
+        <div>
+          <p class="family-kicker">Espacio para personas adultas</p>
+          <h1>Mi familia</h1>
+          <p>Acompaña a tus peques y descubre qué historias disfrutan.</p>
+          <p class="family-demo">Demostración con perfiles y avances ficticios</p>
+        </div>
+        <svg class="family-book-mark" width="128" height="100" viewBox="0 0 128 100" fill="none" aria-hidden="true">
+          <path d="M64 79C52 66 31 63 13 68V24c19-5 39-1 51 11 12-12 32-16 51-11v44c-18-5-39-2-51 11Z" fill="#fffaf0" stroke="#58928a" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M64 35v44M26 36c10-1 20 1 28 6m-28 5c10-1 20 1 28 6m20-11c8-5 18-7 28-6m-28 17c8-5 18-7 28-6" stroke="#8db8ab" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M21 13v10m-5-5h10M98 7v12m-6-6h12m15 63v10m-5-5h10" stroke="#b79257" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <section id="perfiles" aria-labelledby="perfiles-title">
+        <div class="family-section-heading">
+          <h2 id="perfiles-title">Perfiles de lectura</h2>
+          <button class="family-filter" id="family-all" type="button" aria-pressed="true">Ver toda la familia</button>
+        </div>
+        <div class="family-children" id="family-children" role="group" aria-label="Elegir un perfil de lectura"></div>
+        <noscript><p>Activa JavaScript para consultar los perfiles y el progreso de ejemplo.</p></noscript>
+      </section>
+
+      <p class="family-current" id="family-current" role="status"></p>
+      <div class="family-insights">
+        <section class="family-panel" id="progreso" aria-labelledby="progreso-title">
+          <h2 id="progreso-title">Progreso de lectura</h2>
+          <p>Capítulos terminados del catálogo</p>
+          <div class="family-reading">
+            <div class="family-ring" id="family-ring" role="img" aria-label="Progreso de lectura">
+              <strong aria-hidden="true" id="family-percent">0 %</strong>
+            </div>
+            <dl class="family-stats">
+              <div><dt>Capítulos leídos</dt><dd id="family-chapters">0</dd></div>
+              <div><dt>Cuentos terminados</dt><dd id="family-finished">0</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <section class="family-panel" id="generos" aria-labelledby="generos-title">
+          <h2 id="generos-title">Géneros favoritos</h2>
+          <p>Según los cuentos guardados como favoritos.</p>
+          <ul class="family-genres" id="family-genres"></ul>
+        </section>
+      </div>
+
+      <section class="family-panel family-recommendations" id="recomendados" aria-labelledby="recomendados-title">
+        <div class="family-section-heading">
+          <div><h2 id="recomendados-title">Libros recomendados</h2><p>Historias del catálogo para su próxima lectura.</p></div>
+          <div class="family-carousel-controls" role="group" aria-label="Mover el carrusel">
+            <button class="family-arrow" id="family-previous" type="button" aria-label="Libro anterior" aria-controls="family-books" disabled>←</button>
+            <button class="family-arrow" id="family-next" type="button" aria-label="Libro siguiente" aria-controls="family-books" disabled>→</button>
+          </div>
+        </div>
+        <ul class="family-books" id="family-books" aria-label="Cuentos recomendados"></ul>
+      </section>
+    </main>
+  </div>
+  <footer class="site-footer site-footer-compact">
+    <div class="site-footer-inner"><a href="index.html" class="footer-wordmark">World of Words</a><p>Un mundo de historias para leer, jugar y descubrir.</p><p class="footer-bottom">© 2026 World of Words</p></div>
+  </footer>
+</body>
+</html>

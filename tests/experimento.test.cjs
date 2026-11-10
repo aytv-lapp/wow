@@ -116,11 +116,11 @@ test('Every quiz has three valid multiple-choice questions; words fit the game',
       assert.equal(new Set(q.options).size, 3);
       assert.ok(q.explanation.length > 0);
     }
+    assert.equal(story.words.length, 3);
     for (const { word, hint } of story.words) {
       assert.match(word, /^[A-Z]{3,6}$/); assert.ok(hint); assert.ok(!words.has(word)); words.add(word);
     }
   }
-  assert.equal(words.size, 6);
 });
 
 test('Local page links, scripts, images and fragment targets exist; IDs are unique', () => {
@@ -138,7 +138,7 @@ test('Local page links, scripts, images and fragment targets exist; IDs are uniq
   }
 });
 
-test('Both stories connect prologues, chapter completion and the shared progress store', () => {
+test('All stories connect prologues, chapter completion and the shared progress store', () => {
   const { stories } = session();
   for (const story of stories) {
     const prologue = read(story.href);
