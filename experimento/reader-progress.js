@@ -3,6 +3,7 @@
   const story = window.WowStories.find(s => s.id === id);
   if (!story) return;
   const chapter = Number(document.body.dataset.chapter);
+  const readingHref = file => document.body.dataset.readerLocale === 'en' ? file + '?idioma=en' : file;
   if (chapter) window.WowProgress.openChapter(id, chapter);
   document.querySelectorAll('[data-chapter-next]').forEach(link => link.addEventListener('click', () => window.WowProgress.finishChapter(id, chapter)));
   const favorite = document.querySelector('[data-favorite]');
@@ -15,7 +16,7 @@
       favorite.textContent = saved?.favorite ? '♥ En mis favoritos' : '♡ Guardar como favorito';
     }
     if (resume && saved?.lastChapter) {
-      resume.href = story.chapterPrefix + saved.lastChapter + '.html';
+      resume.href = readingHref(story.chapterPrefix + saved.lastChapter + '.html');
       resume.textContent = saved.completedAt ? 'Volver a leer →' : `Continuar: capítulo ${saved.lastChapter} →`;
     }
     if (finish && saved?.completedAt) finish.textContent = 'Cuento terminado · Ir a las actividades →';
@@ -35,7 +36,8 @@
       const saved = window.WowProgress.snapshot().stories[id];
       const missing = Array.from({ length: story.chapters }, (_, i) => i + 1).find(n => !saved.chapters.includes(n));
       message.textContent = 'Guardamos este capítulo. Todavía te quedan capítulos por terminar para completar el cuento.';
-      link.href = `${story.chapterPrefix}${missing}.html`; link.textContent = `Leer capítulo ${missing} →`;
+      link.href = readingHref(story.chapterPrefix + missing + '.html');
+      link.textContent = `Leer capítulo ${missing} →`;
     }
     note.append(message, link);
     note.focus();

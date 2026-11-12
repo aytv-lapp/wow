@@ -8,7 +8,7 @@
 .page-intro h1 { font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.15; color: #064e70; margin: 18px 0; }
 .page-intro > p:last-child { color: #315c6e; font-size: 1.05rem; }
 .activity-grid, .stats, .badges { display: grid; gap: 24px; }
-.activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.activity-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .activity-card, .stat, .badge, .journey-card { background: #fffefa; border: 1px solid #d9e6dd; border-radius: 24px; }
 .activity-card { padding: 30px; display: flex; flex-direction: column; align-items: flex-start; }
 .activity-art { display: block; width: 100%; height: 160px; margin: 8px 0 28px; }
@@ -70,6 +70,27 @@ button:disabled { cursor: default; opacity: .5; box-shadow: none; }
 .journey-actions { font-size: .9rem; color: #087f83; font-weight: 800; }
 .reading-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 20px; }
 .reading-status { margin-top: 20px; }
+.activity-card { min-width: 0; }
+.response-label { display: block; font-weight: 800; margin-top: 24px; }
+.imagine-prompt { background: #e5f5ef; border-radius: 16px; padding: 20px; }
+#imagine-response { display: block; width: 100%; resize: vertical; min-height: 200px; padding: 16px; border: 2px solid #a8c8bf; border-radius: 14px; background: white; color: #083b57; font: inherit; line-height: 1.7; }
+#imagine-response:focus-visible { outline: 3px solid #168c65; outline-offset: 3px; }
+.response-count, .response-note, #response-help { font-size: .9rem; color: #315c6e; }
+.response-count { text-align: right; margin: 6px 0; }
+.response-review { padding: 18px; border: 1px solid #d9e6dd; border-radius: 14px; margin: 24px 0; }
+.response-review summary { cursor: pointer; font-weight: 800; }
+.response-review li { margin-block: 8px; }
+.saga-panel { margin-top: 48px; padding: 28px; border: 1px solid #d9e6dd; border-radius: 24px; background: #fffefa; scroll-margin-top: 24px; }
+.saga-panel h2 { color: #064e70; line-height: 1.25; }
+.saga-list { display: grid; gap: 12px; padding-left: 24px; }
+.saga-list li { padding: 12px; border-radius: 12px; background: #f3f5ec; }
+.saga-list li[aria-current] { background: #e5f5ef; }
+.saga-list span { display: block; font-size: .9rem; color: #315c6e; }
+.story-sections { flex-wrap: wrap; gap: 12px 32px; }
+@media (min-width: 721px) and (max-width: 1050px) {
+  .activity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .imagine-card { grid-column: 1 / -1; }
+}
 @media (max-width: 720px) {
   .luna-header-inner { flex-wrap: wrap; justify-content: center; gap: 8px 16px; }
   .luna-header nav { justify-content: center; font-size: .85rem; }

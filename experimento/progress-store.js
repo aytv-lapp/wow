@@ -1,10 +1,12 @@
 /* Persistencia local. La interfaz pública no depende de las pantallas ni de PHP. */
 (() => {
   const catalog = window.WowStories;
+  const responseIds = new Set(catalog.flatMap(s => (s.imagination || []).map(prompt => `imagine:${s.id}:${prompt.id}`)));
   const activityIds = new Set(catalog.flatMap(s => [`quiz:${s.id}`, ...s.words.map(w => `word:${w.word}`)]));
+  responseIds.forEach(id => activityIds.add(id));
   let context = { tutorId: null, learnerId: null };
   const key = () => 'wow:progress:v1:' + JSON.stringify([context.tutorId, context.learnerId]);
-  const fresh = () => ({ version: 1, stories: {}, activities: {}, updatedAt: null });
+  const fresh = () => ({ version: 1, stories: {}, activities: {}, responses: {}, updatedAt: null });
   let data = fresh();
   let persistent = true;
   const memory = new Map();
@@ -21,7 +23,13 @@
       };
     });
     for (const id of activityIds) {
-      if (typeof raw.activities?.[id] === 'string') result.activities[id] = raw.activities[id];
+      if (typeof raw.activities?.[id] === 'string' && !responseIds.has(id)) result.activities[id] = raw.activities[id];
+    }
+    for (const id of responseIds) {
+      const response = raw.responses?.[id];
+      if (typeof response?.text !== 'string') continue;
+      result.responses[id] = { text: response.text.slice(0, 10000), updatedAt: typeof response.updatedAt === 'string' ? response.updatedAt : null };
+      if (result.responses[id].text.trim() && typeof raw.activities?.[id] === 'string') result.activities[id] = raw.activities[id];
     }
     result.updatedAt = typeof raw.updatedAt === 'string' ? raw.updatedAt : null;
     return result;
@@ -68,7 +76,15 @@
       return Boolean(value.completedAt);
     },
     toggleFavorite(id) { const value = record(id); value.favorite = !value.favorite; save(); return value.favorite; },
-    completeActivity(id) { if (activityIds.has(id) && !data.activities[id]) { data.activities[id] = new Date().toISOString(); save(); } }
+    completeActivity(id) { if (activityIds.has(id) && !responseIds.has(id) && !data.activities[id]) { data.activities[id] = new Date().toISOString(); save(); } },
+    saveResponse(id, text, complete = false) {
+      if (!responseIds.has(id) || typeof text !== 'string' || text.length > 10000 || (complete && !text.trim())) return false;
+      data.responses[id] = { text, updatedAt: new Date().toISOString() };
+      if (complete) data.activities[id] ||= new Date().toISOString();
+      if (!text.trim()) delete data.activities[id];
+      save();
+      return true;
+    }
   };
   load();
   window.addEventListener('storage', event => {

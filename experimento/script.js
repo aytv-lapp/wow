@@ -14,6 +14,11 @@
       const body = document.createElement('div'); body.className = 'story-card-body';
       const label = document.createElement('p'); label.className = 'story-card-category'; label.textContent = story.categories.join(' · ') + ` · ${story.chapters} capítulos`;
       const title = document.createElement('h3'); title.textContent = story.title;
+      if (story.series) {
+        const series = document.createElement('p'); series.className = 'story-card-category';
+        series.textContent = `${story.series.title} · Libro ${story.series.book} de ${story.series.total}`;
+        body.append(series);
+      }
       const summary = document.createElement('p'); summary.className = 'story-card-summary'; summary.textContent = story.summary;
       const link = document.createElement('a'); link.className = 'story-card-link'; link.href = story.href; link.textContent = 'Descubrir el cuento →'; link.setAttribute('aria-label', 'Descubrir ' + story.title);
       body.append(label, title, summary, link); card.append(cover, body); grid.append(card);
