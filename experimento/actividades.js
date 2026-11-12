@@ -5,9 +5,26 @@
   const content = document.getElementById('game-content');
   const kind = document.getElementById('game-kind');
   const select = document.getElementById('quiz-story');
+  const wordSelect = document.getElementById('word-story');
+  const imagineSelect = document.getElementById('imagine-story');
   const requested = new URLSearchParams(location.search).get('cuento');
-  if (stories.some(s => s.id === requested)) select.value = requested;
-  const words = stories.flatMap(story => story.words.map(word => ({ ...word, story })));
+  for (const control of [select, wordSelect, imagineSelect]) {
+    control.replaceChildren(...stories.map(story => {
+      const option = document.createElement('option'); option.value = story.id; option.textContent = story.title; return option;
+    }));
+    if (stories.some(s => s.id === requested)) control.value = requested;
+  }
+  let words = [], imagineStory, promptIndex = 0, activeResponseId = null, responseField = null;
+  const responseNote = document.getElementById('response-storage-note');
+  function updateStorageNote() {
+    responseNote.textContent = store.snapshot().persistent
+      ? 'Tus escritos se guardan en este navegador. Puedes volver para continuarlos.'
+      : 'Este navegador no permite guardar tus escritos al cerrar la página. Puedes copiarlos para conservarlos.';
+  }
+  updateStorageNote();
+  function saveDraft() {
+    if (activeResponseId && responseField) store.saveResponse(activeResponseId, responseField.value);
+  }
   let wordIndex = 0, tiles = [], chosen = [], solved = false, quizStory, questionIndex = 0, answered = false;
   function stopSpeech() { if ('speechSynthesis' in window) window.speechSynthesis.cancel(); }
   function show() { if (!dialog.open) dialog.showModal(); content.querySelector('h2').focus(); }
@@ -16,7 +33,7 @@
     node.textContent = message; node.classList.toggle('retry', retry);
   }
   document.getElementById('close-game').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', stopSpeech);
+  dialog.addEventListener('close', () => { stopSpeech(); saveDraft(); activeResponseId = null; responseField = null; });
   dialog.addEventListener('cancel', stopSpeech);
   function newWord() {
     stopSpeech();
@@ -84,6 +101,48 @@
     });
     document.getElementById('quiz-next').onclick = () => { if (!answered) return; questionIndex++; renderQuiz(); content.querySelector('h2').focus(); dialog.scrollTop = 0; };
   }
-  document.getElementById('start-word').onclick = () => { newWord(); show(); };
+  function renderImagine() {
+    const prompt = imagineStory.imagination[promptIndex];
+    activeResponseId = `imagine:${imagineStory.id}:${prompt.id}`;
+    const saved = store.snapshot();
+    kind.textContent = 'Imagina…';
+    content.innerHTML = `<p class="eyebrow">Propuesta ${promptIndex + 1} de ${imagineStory.imagination.length} · ${imagineStory.title}${prompt.age ? ` · ${prompt.age}` : ''}</p>
+      <h2 id="game-title" tabindex="-1">${prompt.title}</h2><p class="imagine-prompt">${prompt.prompt}</p>
+      <label class="response-label" for="imagine-response">Tu respuesta</label><p id="response-help">Puedes escribir con tus palabras. Apoya tus ideas en lo que ocurre en la historia.</p>
+      <textarea id="imagine-response" rows="9" maxlength="10000" aria-describedby="response-help response-count" placeholder="Imagina que estás allí…"></textarea>
+      <p id="response-count" class="response-count"></p><p id="draft-status" class="response-note" role="status"></p>
+      <details class="response-review"><summary>Antes de terminar, revisa tu respuesta</summary><ul>${prompt.checklist.map(item => `<li>${item}</li>`).join('')}</ul><p>No hay una única respuesta. Revisa si explicaste tus ideas y las relacionaste con el cuento. Puedes compartir tu escrito con alguien que te acompañe en la lectura.</p></details>
+      <div class="game-controls"><button class="luna-button" id="save-imagine" type="button">Guardar respuesta terminada</button></div>
+      <p id="game-feedback" class="game-feedback" role="status"></p>
+      <div class="game-footer"><a href="${imagineStory.chapterPrefix}${prompt.chapter}.html">Volver al capítulo ${prompt.chapter}</a><button class="tool" id="previous-prompt" type="button" ${promptIndex === 0 ? 'disabled' : ''}>← Anterior</button><button class="tool" id="next-prompt" type="button" ${promptIndex === imagineStory.imagination.length - 1 ? 'disabled' : ''}>Otra situación →</button><a href="recorrido.html">Ver mi recorrido</a></div>`;
+    responseField = document.getElementById('imagine-response');
+    responseField.value = saved.responses[activeResponseId]?.text || '';
+    function updateResponseState() {
+      document.getElementById('response-count').textContent = `${responseField.value.length} / 10000 caracteres`;
+      document.getElementById('save-imagine').disabled = !responseField.value.trim();
+    }
+    responseField.addEventListener('input', () => {
+      saveDraft(); updateResponseState(); updateStorageNote();
+      document.getElementById('draft-status').textContent = store.snapshot().persistent ? 'Borrador guardado en este navegador.' : 'Borrador disponible mientras esta página siga abierta. Copia tu texto para conservarlo.';
+      feedback('');
+    });
+    updateResponseState();
+    if (saved.activities[activeResponseId]) feedback('Esta respuesta ya forma parte de tu recorrido. Puedes revisarla y mejorarla.');
+    document.getElementById('save-imagine').onclick = () => {
+      if (!store.saveResponse(activeResponseId, responseField.value, true)) return;
+      updateStorageNote();
+      feedback(store.snapshot().persistent ? '¡Guardaste tu respuesta! Ya forma parte de tu recorrido. Puedes volver a mejorarla cuando quieras.' : 'Tu respuesta cuenta en el recorrido durante esta sesión. Copia tu escrito para conservarlo antes de salir.');
+    };
+    function movePrompt(offset) { saveDraft(); promptIndex += offset; renderImagine(); content.querySelector('h2').focus(); dialog.scrollTop = 0; }
+    document.getElementById('previous-prompt').onclick = () => movePrompt(-1);
+    document.getElementById('next-prompt').onclick = () => movePrompt(1);
+  }
+  window.addEventListener('wow:progress', updateStorageNote);
+  document.getElementById('start-word').onclick = () => { const story = stories.find(s => s.id === wordSelect.value); words = story.words.map(word => ({ ...word, story })); wordIndex = 0; newWord(); show(); };
   document.getElementById('start-quiz').onclick = () => { quizStory = stories.find(s => s.id === select.value); questionIndex = 0; renderQuiz(); show(); };
+  document.getElementById('start-imagine').onclick = () => { imagineStory = stories.find(s => s.id === imagineSelect.value); promptIndex = 0; renderImagine(); show(); };
+  const requestedPrompt = new URLSearchParams(location.search).get('imagina');
+  const requestedStory = stories.find(s => s.id === requested);
+  const requestedIndex = requestedStory?.imagination.findIndex(prompt => prompt.id === requestedPrompt) ?? -1;
+  if (requestedIndex >= 0) { imagineStory = requestedStory; promptIndex = requestedIndex; renderImagine(); show(); }
 })();

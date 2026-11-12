@@ -33,6 +33,11 @@ function drawStories() {
     const category = document.createElement('span'); category.className = 'mb-2 inline-block rounded-full bg-[#e5f5ef] px-3 py-1 text-sm font-extrabold text-[#168c65]';
     category.textContent = story.categories.join(', ') || 'Cuento';
     const title = document.createElement('h3'); title.className = 'text-xl font-bold text-[#075985]'; title.textContent = story.title;
+    if (story.series) {
+      const series = document.createElement('p'); series.className = 'mb-2 text-sm font-extrabold text-[#168c65]';
+      series.textContent = `${story.series.title} · Libro ${story.series.book} de ${story.series.total}`;
+      body.append(series);
+    }
     const summary = document.createElement('p'); summary.className = 'mt-2 text-[#315c6e]'; summary.textContent = story.summary || 'Una aventura te espera.';
     body.append(category, title, summary); card.append(cover, body); grid.append(card);
   });

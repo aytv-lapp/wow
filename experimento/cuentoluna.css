@@ -70,3 +70,68 @@
   .reading-sheet { padding: 32px 22px; }
   .chapter-navigation { flex-direction: column-reverse; align-items: stretch; text-align: center; }
 }
+
+
+/* Idioma de lectura y pistas de vocabulario. */
+.reading-language {
+  min-height: 44px;
+  padding: .4rem .65rem;
+  border: 1px solid #a6c9bf;
+  border-radius: .65rem;
+  background: #fffefa;
+  color: #064e70;
+  font: inherit;
+  font-weight: 800;
+}
+
+.reader-language {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 0 0 1rem;
+  color: #315c6e;
+  font-size: .9rem;
+}
+
+.luna-page .reading-hint,
+.luna-page .prologue .reading-hint {
+  margin: 0 0 1rem;
+  padding: .55rem .75rem;
+  border-radius: .6rem;
+  background: #e5f5ef;
+  color: #315c6e;
+  font: 700 .9rem/1.45 Nunito, sans-serif;
+}
+
+.reading-word {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: .2rem;
+  background: transparent;
+  color: #075985;
+  font: inherit;
+  text-decoration: underline dotted #087f83;
+  text-underline-offset: .2em;
+}
+
+.reading-word:is(:hover, :focus-visible, [aria-expanded="true"]) {
+  background: #e5f5ef;
+}
+
+.reading-gloss {
+  position: fixed;
+  z-index: 70;
+  max-width: min(16rem, calc(100vw - 16px));
+  padding: .55rem .85rem;
+  border: 1px solid #a6c9bf;
+  border-radius: .75rem;
+  background: #fffefa;
+  color: #064e70;
+  box-shadow: 0 6px 18px #064e7026;
+  overflow-wrap: anywhere;
+}
+
+.reading-gloss strong,
+.reading-gloss span { display: block; }
+.reading-gloss span { color: #315c6e; }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Actividades | World of Words</title>
-  <meta name="description" content="Forma palabras y resuelve pequeños misterios sobre los cuentos de la biblioteca.">
+  <meta name="description" content="Forma palabras, resuelve misterios e imagina nuevas situaciones a partir de los cuentos y libros de la biblioteca.">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="cuentoluna.css"><link rel="stylesheet" href="experiencias.css">
   <script src="story-data.js" defer></script><script src="progress-store.js" defer></script><script src="actividades.js" defer></script>
@@ -22,14 +22,22 @@
     <div class="activity-grid">
       <article class="activity-card">
         <svg class="activity-art" viewBox="0 0 350 160" aria-hidden="true"><rect x="50" y="28" width="75" height="83" rx="15" fill="#e6c58c" transform="rotate(-9 85 70)"/><rect x="139" y="45" width="75" height="83" rx="15" fill="#a7c4ad" transform="rotate(7 170 80)"/><rect x="228" y="21" width="75" height="83" rx="15" fill="#c3bdce" transform="rotate(-7 260 60)"/><g fill="#234f56" font-size="38" font-family="sans-serif" font-weight="bold" text-anchor="middle"><text x="87" y="83">S</text><text x="176" y="102">O</text><text x="264" y="77">L</text></g><path d="M94 146q89-24 170-12" fill="none" stroke="#c7cfbd" stroke-width="3" stroke-linecap="round"/></svg>
-        <p class="eyebrow">Letras traviesas · 3–6 letras</p><h2>Construye una palabra</h2><p>Lee o escucha la pista y coloca las letras en su lugar. Puedes intentarlo todas las veces que quieras.</p>
+        <p class="eyebrow">Letras traviesas · Vocabulario de los cuentos</p><h2>Construye una palabra</h2><p>Lee o escucha la pista y coloca las letras en su lugar. Encontrarás palabras cortas y nuevos retos, como brújula o ecosistema.</p>
+        <label for="word-story">Elige tu cuento o libro</label><select id="word-story"></select>
         <button class="luna-button" id="start-word" type="button">Vamos a jugar <span aria-hidden="true">→</span></button>
       </article>
       <article class="activity-card" id="misterio">
         <svg class="activity-art" viewBox="0 0 350 160" aria-hidden="true"><circle cx="270" cy="30" r="17" fill="#e6c58c"/><path d="M0 130Q90 82 175 125T350 120V160H0" fill="#b4cbb0"/><path d="M0 143Q90 104 175 138T350 135V160H0" fill="#95b89c"/><path d="M110 78C80 78 80 43 110 44C108 12 150 10 160 35C185 10 218 25 214 48C245 48 245 80 217 80Z" fill="#f5edda"/><circle cx="145" cy="59" r="3" fill="#234f56"/><circle cx="179" cy="59" r="3" fill="#234f56"/><path d="M153 66Q162 76 172 66" fill="none" stroke="#234f56" stroke-width="2"/><path d="M58 130L72 100L86 130M272 135L283 110L294 135" fill="#70967e"/></svg>
-        <p class="eyebrow">Detectives de cuentos · 3 preguntas</p><h2>¿Qué pasó en la historia?</h2><p>Recuerda a los personajes y descubre los detalles. Elige un cuento que ya hayas leído o vuelve a leerlo primero.</p>
-        <label for="quiz-story">Elige tu cuento</label><select id="quiz-story"><option value="luna">Luna y el planeta de colores</option><option value="bruno">Bruno, el zorro que aprendió a compartir</option><option value="expedicion">La expedición al corazón de la montaña</option></select>
+        <p class="eyebrow">Detectives de cuentos · 6 preguntas por historia</p><h2>¿Qué pasó en la historia?</h2><p>Recuerda a los personajes y descubre los detalles. Elige un cuento que ya hayas leído o vuelve a leerlo primero.</p>
+        <label for="quiz-story">Elige tu cuento o libro</label><select id="quiz-story"></select>
         <button class="luna-button" id="start-quiz" type="button">Resolver el misterio <span aria-hidden="true">→</span></button>
+      </article>
+      <article class="activity-card imagine-card" id="imagina">
+        <svg class="activity-art" viewBox="0 0 350 160" aria-hidden="true"><rect x="94" y="20" width="145" height="120" rx="14" fill="#e5f5ef"/><path d="M119 50h92m-92 22h75m-75 22h84m-84 22h53" stroke="#82b99b" stroke-width="5" stroke-linecap="round"/><path d="m213 114 33-64 14 7-33 64-19 13z" fill="#e6c58c"/><path d="m208 134 5-20 14 7z" fill="#075985"/><path d="m66 32 4 10 11 3-11 4-4 11-3-11-11-4 11-3zm210 61 4 10 11 4-11 3-4 11-3-11-11-3 11-4z" fill="#c3bdce"/></svg>
+        <p class="eyebrow">Imagina… · Comprender, sentir y crear</p><h2>Escribe desde la historia</h2><p>Ponte en el lugar de los personajes, escribe una carta o piensa qué harías tú. Explica tus ideas con detalles del cuento: cada respuesta puede abrir un camino diferente.</p>
+        <label for="imagine-story">Elige tu cuento o libro</label><select id="imagine-story"></select>
+        <p class="response-note" id="response-storage-note"></p>
+        <button class="luna-button" id="start-imagine" type="button">Empezar a imaginar <span aria-hidden="true">→</span></button>
       </article>
     </div>
     <p class="gentle-note">Aquí los intentos también cuentan. No hay cronómetro ni competencia: solo nuevas oportunidades de aprender.</p>

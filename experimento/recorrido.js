@@ -42,7 +42,19 @@
     get('completed-activities').replaceChildren();
     activities.forEach(id => {
       const item = document.createElement('li');
-      item.textContent = id.startsWith('word:') ? `Palabra descubierta: ${id.slice(5)}` : `Misterio resuelto: ${stories.find(s => s.id === id.slice(5)).title}`;
+      if (id.startsWith('word:')) {
+        item.textContent = `Palabra descubierta: ${id.slice(5)}`;
+      } else if (id.startsWith('imagine:')) {
+        const [, storyId, promptId] = id.split(':');
+        const story = stories.find(s => s.id === storyId);
+        const prompt = story.imagination.find(p => p.id === promptId);
+        const link = document.createElement('a');
+        link.href = `actividades.html?cuento=${storyId}&imagina=${promptId}#imagina`;
+        link.textContent = `Imagina… ${prompt.title} · ${story.title} · Ver mi respuesta`;
+        item.append(link);
+      } else {
+        item.textContent = `Misterio resuelto: ${stories.find(s => s.id === id.slice(5)).title}`;
+      }
       get('completed-activities').append(item);
     });
     get('storage-note').textContent = (saved.persistent ? 'Tu recorrido se guarda en este navegador, sin vincularse todavía a una cuenta.' : 'El navegador no permite guardar el recorrido. Tus avances se conservarán solo mientras permanezcas en esta página.') + ' Cada cuento y cada actividad cuentan una sola vez, aunque vuelvas a disfrutarlos.';
